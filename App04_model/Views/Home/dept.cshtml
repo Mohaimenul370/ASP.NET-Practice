@@ -1,0 +1,28 @@
+﻿@model IEnumerable<App04_model.Models.Department>
+@{
+    ViewData["Title"] = "dept";
+}
+
+<div class="row">
+
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <form asp-action="senddept" method="post">
+            <label>Please Select Your Department</label>
+            <select name="department" class="form-control">
+                @if(Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                }
+            </select>
+            <br />
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+
